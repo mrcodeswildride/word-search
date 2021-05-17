@@ -14,9 +14,9 @@ function findWord() {
 
   messageParagraph.innerHTML = ``
 
-  let successPath
-
   if (wordValue != ``) {
+    let successPath
+
     for (let square of squares) {
       successPath = visit(square, [], wordValue)
 
@@ -29,8 +29,7 @@ function findWord() {
       for (let square of successPath) {
         square.classList.add("highlighted")
       }
-    }
-    else {
+    } else {
       messageParagraph.innerHTML = `Word not found`
     }
   }
@@ -49,7 +48,7 @@ function visit(square, path, wordToFind) {
     return path
   }
 
-  if (foundWord[foundWord.length-1] != wordToFind[foundWord.length-1]) {
+  if (foundWord[foundWord.length - 1] != wordToFind[foundWord.length - 1]) {
     return null
   }
 
@@ -99,8 +98,7 @@ function getNeighbor(square, xDiff, yDiff) {
   if (neighborRow == null) {
     // row is beyond edge, so no neighbor square
     return null
-  }
-  else {
+  } else {
     // if x + xDiff is beyond edge, will be null
     return neighborRow.children[x + xDiff]
   }
